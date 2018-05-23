@@ -65,8 +65,12 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
-      favicon: path.join(__dirname, 'src', 'img', 'favicon.ico'),
+      title: 'Simple TO-DO',
+      // favicon: path.join(__dirname, 'src', 'img', 'favicon.ico'),
     }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+  },
   devtool: 'source-map',
 };

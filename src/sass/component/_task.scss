@@ -1,0 +1,10 @@
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .task-description {
+    @extend .my-1;
+    flex-grow: 1;
+  }
+}

@@ -7,48 +7,61 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 
-<body>
-  <header>
-    <h1>Simple TO-DO list</h1>
+<body class="container-fluid d-flex flex-column">
+  <header class="row align-items-center justify-content-center header">
+    <h1 class="text-center my-3">Simple TO-DO list</h1>
   </header>
-  <main>
-    <header>
-      <button>New TO-DO task</button>
-      <form>
-        <input type="text" placeholder="New task">
-        <input type="submit" value="Save">
-      </form>
-    </header>
-    <ul>
-      <li>
-        <input type="checkbox" name="" id="">
-        <p>Something todo 1</p>
-        <button></button>
-      </li>
-      <li>
-        <input type="checkbox" name="" id="">
-        <p>Something todo 2</p>
-        <button></button>
-      </li>
-      <li>
-        <input type="checkbox" name="" id="">
-        <p>Something todo 3</p>
-        <button></button>
-      </li>
-    </ul>
-    <footer>
-      <label for="">
-        Hide completed
-        <div>
-          <input type="checkbox" name="" id="">
+  <main class="row justify-content-center align-items-start">
+    <section class="card w-100 todo-card">
+      <header class="d-flex flex-column align-items-center card-header text-center">
+        <button class="btn btn-primary mb-2" type="button" data-toggle="collapse" data-target="#addNewTodoForm" aria-expanded="false"
+          aria-controls="addNewTodoForm">New TO-DO task</button>
+        <form class="collapse form-inline align-self-stretch" id="addNewTodoForm">
+          <div class="form-group w-100 d-flex flex-nowrap mb-0">
+            <input class="form-control mr-2 w-100" type="text" placeholder="New task">
+            <input class="btn btn-success" type="submit" value="Save">
+          </div>
+        </form>
+      </header>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item task">
+          <input class="mx-2" type="checkbox" name="" id="">
+          <p class="task-description">Something todo 1</p>
+          <button type="button" class="close align-self-start" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item task">
+          <input class="mx-2" type="checkbox" name="" id="">
+          <p class="task-description">Something todo 2</p>
+          <button type="button" class="close align-self-start" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item task">
+          <input class="mx-2" type="checkbox" name="" id="">
+          <p class="task-description">Something todo 3</p>
+          <button type="button" class="close align-self-start" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+      </ul>
+      <footer class="card-footer d-flex align-items-center justify-content-end">
+        <label class="my-1" for="switch-hide-completed">
+          Hide completed
+        </label>
+        <div class="mx-2">
+          <input type="checkbox" name="" id="switch-hide-completed">
           <span></span>
         </div>
-      </label>
-    </footer>
+      </footer>
+    </section>
   </main>
-  <footer>
-    <address>Created by Eugene Dubouski (
-      <a href="https://github.com/joinhud">github.com/joinhud</a>)</address>
+  <footer class="row align-items-center justify-content-center footer w-100">
+    <address class="my-3">
+      Created by:
+      <a href="https://github.com/joinhud">Eugene Dubouski</a>
+    </address>
   </footer>
 </body>
 

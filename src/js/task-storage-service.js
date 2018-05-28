@@ -12,9 +12,7 @@ export default class TaskStorageService {
   }
 
   findAllUncompletedTasks() {
-    return this.storage.getTasks().filter((task) => {
-      return !task.isCompleted();
-    });
+    return this.storage.getTasks().filter(task => !task.isCompleted());
   }
 
   addNewTask(task) {

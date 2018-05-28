@@ -1,5 +1,10 @@
 import generateId from './id-generator';
 
+
+function updateStorage(tasks) {
+  window.localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 export default class TaskStorage {
   constructor() {
     this.tasks = JSON.parse(window.localStorage.getItem('tasks')) || [];
@@ -19,7 +24,7 @@ export default class TaskStorage {
 
   addTask(task) {
     const id = generateId();
-    task.setId(id)
+    task.setId(id);
     this.tasks[id] = task;
     updateStorage(this.tasks);
   }
@@ -37,8 +42,4 @@ export default class TaskStorage {
       updateStorage(this.tasks);
     }
   }
-}
-
-function updateStorage(tasks) {
-  window.localStorage.setItem('tasks', JSON.stringify(tasks));
 }

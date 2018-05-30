@@ -17,15 +17,7 @@ export default class Task {
     this.description = description;
   }
 
-  getDescription() {
-    return this.description;
-  }
-
   completeTask() {
     this.completed = true;
-  }
-
-  isCompleted() {
-    return this.completed;
   }
 }

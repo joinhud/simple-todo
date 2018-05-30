@@ -1,16 +1,20 @@
 import generateId from './id-generator';
 
-
 function updateStorage(tasks) {
-  window.localStorage.setItem('tasks', JSON.stringify(tasks));
+  const stringifiedTasks = JSON.stringify(tasks);
+  window.localStorage.setItem('tasks', stringifiedTasks);
 }
 
 export default class TaskStorage {
   constructor() {
-    this.tasks = JSON.parse(window.localStorage.getItem('tasks')) || [];
+    try {
+      this.tasks = JSON.parse(window.localStorage.getItem('tasks'));
+    } catch (e) {
+      this.tasks = {};
+    }
   }
 
-  setTasks(tasks = new Map()) {
+  setTasks(tasks = {}) {
     this.tasks = tasks;
   }
 

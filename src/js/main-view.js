@@ -22,9 +22,16 @@ function refillTaskList(view) {
 function completeTaskHandler(event) {
   const $completeCheckbox = $(event.target);
   const $taskElement = $completeCheckbox.closest('.task');
-  const id = $taskElement.closest('.task').prop('id');
+  const id = $taskElement.prop('id');
   const completed = $completeCheckbox.prop('checked');
   event.data.controller.changeTaskStatus(id, completed);
+}
+
+function deleteTaskHandler(event) {
+  const $taskElement = $(event.target).closest('.task');
+  const id = $taskElement.prop('id');
+  event.data.controller.deleteTaskById(id);
+  refillTaskList(event.data.view);
 }
 
 export default class MainView {
@@ -50,5 +57,7 @@ export default class MainView {
     });
 
     $('#task-list').on('click', '.task-completed-btn', { controller: this.taskStorageController }, completeTaskHandler);
+
+    $('#task-list').on('click', '.delete-task-btn', { view: this, controller: this.taskStorageController }, deleteTaskHandler);
   }
 }

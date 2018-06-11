@@ -1,8 +1,8 @@
 export default class Task {
-  constructor(description = '') {
-    this.id = -1;
+  constructor({ id = -1, description = '', completed = false }) {
+    this.id = id;
     this.description = description;
-    this.completed = false;
+    this.completed = completed;
   }
 
   setId(id) {
@@ -17,7 +17,7 @@ export default class Task {
     this.description = description;
   }
 
-  completeTask() {
-    this.completed = true;
+  isCompleted(completed) {
+    this.completed = completed;
   }
 }

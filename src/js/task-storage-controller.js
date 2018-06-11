@@ -13,8 +13,14 @@ export default class TaskStorageController {
     return this.taskStorageService.findAllUncompletedTasks();
   }
 
+  changeTaskStatus(id, completed) {
+    const task = this.taskStorageService.findTaskById(id);
+    task.isCompleted(completed);
+    this.taskStorageService.updateTask(task);
+  }
+
   addNewTask(description) {
-    const task = new Task(description);
+    const task = new Task({ description });
     this.taskStorageService.addNewTask(task);
   }
 

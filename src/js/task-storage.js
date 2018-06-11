@@ -5,10 +5,20 @@ function updateStorage(tasks) {
   window.localStorage.setItem('tasks', stringifiedTasks);
 }
 
+function getStoredValues() {
+  let values = JSON.parse(window.localStorage.getItem('tasks'));
+
+  if (values === null) {
+    values = {};
+  }
+
+  return values;
+}
+
 export default class TaskStorage {
   constructor() {
     try {
-      this.tasks = JSON.parse(window.localStorage.getItem('tasks'));
+      this.tasks = getStoredValues();
     } catch (e) {
       this.tasks = {};
     }

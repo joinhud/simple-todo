@@ -1,10 +1,13 @@
+import Task from './task';
+
 export default class TaskStorageService {
   constructor(storage) {
     this.storage = storage;
   }
 
   findTaskById(id) {
-    return this.storage.getTaskById(id);
+    const storedObj = this.storage.getTaskById(id);
+    return new Task(storedObj);
   }
 
   findAllTasks() {
